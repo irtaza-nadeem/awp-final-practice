@@ -1,25 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import PostsListComponent from "./postsList";
+import SelectedPostComponent from "./showPost";
+import EditPostComponent from "./editPost";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Switch>
+          <Route path={'/posts/:id/edit'} component={EditPostComponent}/>
+          <Route path={'/posts/:id'} component={SelectedPostComponent}/>
+          <Route path={'/posts'} component={PostsListComponent}/>
+      </Switch>
   );
 }
 
