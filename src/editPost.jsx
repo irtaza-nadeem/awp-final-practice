@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom'
 import {store} from "./store";
 
 class EditPostComponent extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            posts: []
+        }
     }
 
     onChange = (e) => {
@@ -17,10 +21,6 @@ class EditPostComponent extends React.Component {
 
     };
 
-    /*componentWillReceiveProps () {
-        this.setState({ posts: this.props.post});
-        alert(this.props.post.title);
-    }*/
 
     componentDidMount() {
 
